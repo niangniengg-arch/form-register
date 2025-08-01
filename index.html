@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +64,6 @@
     #status {
       text-align: center;
       margin-top: 15px;
-      color: green;
     }
 
     @media screen and (max-width: 500px) {
@@ -79,12 +79,12 @@
     <img src="https://i.imgur.com/HM4e38Y.jpeg" alt="Logo Rumah Belajar" class="logo" />
     <h2>REGISTER</h2>
     <form id="regForm">
-      <input type="text" name="namaAnak" placeholder="Nama Anak" required />
-      <input type="text" name="kelas" placeholder="Kelas" required />
-      <input type="text" name="sekolah" placeholder="Sekolah" required />
-      <input type="text" name="namaOrtu" placeholder="Nama Ortu" required />
-      <input type="tel" name="telpOrtu" placeholder="Nomor Telp Ortu" required />
-      <input type="tel" name="telpAnak" placeholder="Nomor Telp Anak" required />
+      <input type="text" id="namaAnak" name="namaAnak" placeholder="Nama Anak" required />
+      <input type="text" id="kelas" name="kelas" placeholder="Kelas" required />
+      <input type="text" id="sekolah" name="sekolah" placeholder="Sekolah" required />
+      <input type="text" id="namaOrtu" name="namaOrtu" placeholder="Nama Ortu" required />
+      <input type="tel" id="telpOrtu" name="telpOrtu" placeholder="Nomor Telp Ortu" required />
+      <input type="tel" id="telpAnak" name="telpAnak" placeholder="Nomor Telp Anak" required />
       <button type="submit">Kirim</button>
     </form>
     <div id="status"></div>
@@ -103,11 +103,14 @@
         headers: { 'Content-Type': 'application/json' }
       });
 
+      const status = document.getElementById('status');
       if (response.ok) {
-        document.getElementById('status').textContent = "Berhasil dikirim!";
+        status.textContent = "Berhasil dikirim!";
+        status.style.color = "green";
         form.reset();
       } else {
-        document.getElementById('status').textContent = "Gagal mengirim data.";
+        status.textContent = "Gagal mengirim data.";
+        status.style.color = "red";
       }
     });
   </script>
