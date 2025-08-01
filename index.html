@@ -97,9 +97,12 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      const response = await fetch('https://script.google.com/macros/s/AKfycby_eNYPji1U3640E6MO0mCLMgEQov-wRCVTcxL8cu-QPmmpf4Q96reaoY9v3JLUWrq3/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyDaj1tEqb-XBn40KdcAMalGI9TTsXKyajJJ7CGiQWfHihO4HPMZPq35ejxpLo9U93U/exec', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+})
+
         headers: { 'Content-Type': 'application/json' }
       });
 
